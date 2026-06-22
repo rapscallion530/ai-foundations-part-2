@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A beginner-friendly workspace for setup tasks, terminal commands, and fictional AI lab notes."
+    />
+    <title>AI Lab Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="container hero">
+        <p class="eyebrow">Your local learning workspace</p>
+        <h1>AI Lab Notes</h1>
+        <p class="intro">
+          Keep setup tasks, useful commands, and fictional experiments together—right in your browser.
+        </p>
+        <div class="privacy-note" role="note">
+          <span aria-hidden="true">🔒</span>
+          Notes stay in this browser. Do not enter passwords, tokens, or private data.
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="container page-grid">
+      <section class="card checklist-card" aria-labelledby="setup-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Start here</p>
+            <h2 id="setup-title">Setup checklist</h2>
+          </div>
+          <span id="checklist-progress" class="progress-pill" aria-live="polite">0 of 6</span>
+        </div>
+        <p class="section-copy">Check each item as you prepare your local development environment.</p>
+        <div id="checklist" class="checklist"></div>
+        <button id="reset-checklist" class="button button-quiet" type="button">Reset checklist</button>
+      </section>
+
+      <section class="card commands-card" aria-labelledby="commands-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Quick reference</p>
+            <h2 id="commands-title">Linux &amp; Git cheat sheet</h2>
+          </div>
+        </div>
+        <div class="command-groups">
+          <div>
+            <h3>Linux basics</h3>
+            <dl class="command-list">
+              <div><dt><code>pwd</code></dt><dd>Show the current folder</dd></div>
+              <div><dt><code>ls -la</code></dt><dd>List files, including hidden ones</dd></div>
+              <div><dt><code>cd folder</code></dt><dd>Move into a folder</dd></div>
+              <div><dt><code>mkdir name</code></dt><dd>Create a new folder</dd></div>
+              <div><dt><code>clear</code></dt><dd>Clear the terminal screen</dd></div>
+            </dl>
+          </div>
+          <div>
+            <h3>Git essentials</h3>
+            <dl class="command-list">
+              <div><dt><code>git status</code></dt><dd>See changed files</dd></div>
+              <div><dt><code>git add .</code></dt><dd>Stage current changes</dd></div>
+              <div><dt><code>git commit -m "message"</code></dt><dd>Save a snapshot</dd></div>
+              <div><dt><code>git log --oneline</code></dt><dd>View commit history</dd></div>
+              <div><dt><code>git push</code></dt><dd>Send commits to the remote</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="card notes-card" aria-labelledby="notes-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Practice journal</p>
+            <h2 id="notes-title">Fictional lab notes</h2>
+          </div>
+          <span id="note-count" class="progress-pill" aria-live="polite">0 notes</span>
+        </div>
+        <p class="section-copy">Record made-up experiments for practice. Entries are saved in localStorage.</p>
+
+        <form id="notes-form" class="notes-form">
+          <div class="form-row">
+            <label>
+              Experiment title
+              <input name="title" type="text" maxlength="80" required placeholder="Example: Friendly robot classifier" />
+            </label>
+            <label>
+              Date
+              <input name="date" type="date" required />
+            </label>
+          </div>
+          <label>
+            Topic
+            <select name="topic">
+              <option>Prompt design</option>
+              <option>Data basics</option>
+              <option>Model behavior</option>
+              <option>Evaluation</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            What happened?
+            <textarea name="observation" rows="4" maxlength="600" required placeholder="Describe the fictional result..."></textarea>
+          </label>
+          <label>
+            Next step
+            <input name="nextStep" type="text" maxlength="160" placeholder="What would you try next?" />
+          </label>
+          <div class="form-actions">
+            <button class="button button-primary" type="submit">Save lab note</button>
+            <button class="button button-quiet" type="reset">Clear form</button>
+          </div>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </form>
+
+        <div class="saved-notes">
+          <h3>Saved notes</h3>
+          <div id="notes-list" class="notes-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">Built for learning. Stored locally. No external APIs.</div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
